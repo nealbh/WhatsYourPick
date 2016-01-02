@@ -13,6 +13,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
@@ -28,7 +29,7 @@
                     Text="Number of selections?"
                    Margin="20,40,0,0"
                    FontSize="24"/>
-                <TextBox x:ConnectionId='1' x:Name="selections"
+                <TextBox x:ConnectionId='2' x:Name="selections"
                  Margin="20,20,0,0" 
                  Width="200"
                  TextAlignment="Left"
@@ -39,16 +40,34 @@
             </StackPanel>
             <StackPanel x:Name="stack"
                     Orientation="Vertical"
-                    Grid.Row="2"/>
+                    Grid.Row="2">
 
-            <Button x:Name="send"
-                    Content="Send"
+
+                <ListBox Name="Contacts"
+                         ItemsSource="{Binding}"
+                         Height="200"
+                         Width="300"
+                         HorizontalAlignment="Left"
+                         Margin="20,0,0,0"
+                         Grid.Row="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Name="ContactResultsData"
+                                          Text="{Binding Path=DisplayName, 
+                                                         Mode=OneWay}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+            <Button x:ConnectionId='1' x:Name="contact"
+                    Content="select contacts"
                     FontSize="24"
                     Margin="20,10,0,0"
-                    Grid.Row="3"
+                    Grid.Row="4"
                     HorizontalAlignment="Left"
                     Width="300"
                     Visibility="Collapsed"
+                                         
                     />
         </Grid>
     </ScrollViewer>

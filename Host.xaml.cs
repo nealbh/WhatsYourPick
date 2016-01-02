@@ -66,5 +66,7 @@ namespace Doodle
         {
           //  Frame.Navigate(typeof(Contact));
         }
+
+        
     }
 }
